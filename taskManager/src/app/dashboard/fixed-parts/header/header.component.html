@@ -1,0 +1,16 @@
+<div class="header d-flex justify-content-between align-items-center pr-3">
+  <p class="org-name">{{orgName}}</p>
+  <div class="navMenu">
+    <button class="account-info" mat-button [matMenuTriggerFor]="menu"><i  class="material-icons">person</i> {{fullName}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="edit()"><mat-icon>settings</mat-icon>Account </button>
+      <button mat-menu-item (click)="Logout()"><mat-icon>exit_to_app</mat-icon>Log out</button>
+    </mat-menu>
+  </div>
+    
+    
+    
+</div>
+<hr>
+
+

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles//buttons.scss";
+@import "/src/assets/styles/table-new.scss";
+@import "/src/assets/styles/icons.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica", sans-serif; 
+    background-color: #eee;
+    color: #3c4858;
+    font-weight: 300;
+}
+table {
+    width: 100%;
+  }

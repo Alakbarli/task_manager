@@ -1,0 +1,19 @@
+.main-button{
+    border-radius: 13px;
+    padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  position: relative;
+  z-index: 3;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, $blue, $purple);
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+}

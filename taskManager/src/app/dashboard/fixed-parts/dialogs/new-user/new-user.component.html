@@ -1,0 +1,30 @@
+<form class="dialogForm" [formGroup]="newUserForm">
+    <h1 mat-dialog-title>{{user?'Edit user':'New user'}}</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-control-dialog">
+                <label for="">Name</label>
+                <input [ngClass]="{'invalid':name.invalid && (name.dirty || name.touched)}" [formControl]="name" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Surname</label>
+                <input [ngClass]="{'invalid':surname.invalid && (surname.dirty || surname.touched)}" [formControl]="surname" type="text">
+            </div>
+            <div *ngIf="!user" class="form-control-dialog">
+                <label for="">Username</label>
+                <input [ngClass]="{'invalid':username.invalid && (username.dirty || username.touched)}" [formControl]="username" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Email</label>
+                <input [ngClass]="{'invalid':email.invalid && (email.dirty || email.touched)}" [formControl]="email" type="email">
+            </div>
+            <div class="form-control-dialog">
+                <span >default password: Aa@111</span>
+            </div>
+            <div class="form-control-dialog">
+                <button class="submit mt-3" mat-button (click)="addNewUser()">{{user?'Edit user':'New user'}}</button>
+            </div>
+        </div>
+    </div>
+    <button class="close" [mat-dialog-close]><mat-icon>close</mat-icon></button>
+</form>

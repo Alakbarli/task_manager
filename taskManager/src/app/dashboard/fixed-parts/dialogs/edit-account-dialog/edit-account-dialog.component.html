@@ -1,0 +1,75 @@
+<form *ngIf="isAdmin&&newUserForm" class="dialogForm" [formGroup]="newUserForm">
+    <h1 mat-dialog-title>Edit user and organization info</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-control-dialog">
+                <label for="">Name</label>
+                <input [ngClass]="{'invalid':name.invalid && (name.dirty || name.touched)}" [formControl]="name" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Surname</label>
+                <input [ngClass]="{'invalid':surname.invalid && (surname.dirty || surname.touched)}" [formControl]="surname" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Email</label>
+                <input [ngClass]="{'invalid':email.invalid && (email.dirty || email.touched)}" [formControl]="email" type="email">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Current password</label>
+                <input [ngClass]="{'invalid':currentPassword.invalid && (currentPassword.dirty || currentPassword.touched)}" [formControl]="currentPassword" type="password">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">New password</label>
+                <input [ngClass]="{'invalid':newPassword.invalid && (newPassword.dirty || newPassword.touched)}" [formControl]="newPassword" type="password">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Organization name</label>
+                <input [ngClass]="{'invalid':organizationName.invalid && (organizationName.dirty || organizationName.touched)}" [formControl]="organizationName" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Phone number</label>
+                <input [ngClass]="{'invalid':phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)}" [formControl]="phoneNumber" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Address</label>
+                <input [ngClass]="{'invalid':address.invalid && (address.dirty || address.touched)}" [formControl]="address" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <button class="submit mt-3" mat-button (click)="editUser()">Edit</button>
+            </div>
+        </div>
+    </div>
+    <button class="close" [mat-dialog-close]><mat-icon>close</mat-icon></button>
+</form>
+
+<form *ngIf="!isAdmin&&newUserForm" class="dialogForm" [formGroup]="newUserForm">
+    <h1 mat-dialog-title>Edit user info</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-control-dialog">
+                <label for="">Name</label>
+                <input [ngClass]="{'invalid':name.invalid && (name.dirty || name.touched)}" [formControl]="name" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Surname</label>
+                <input [ngClass]="{'invalid':surname.invalid && (surname.dirty || surname.touched)}" [formControl]="surname" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Email</label>
+                <input [ngClass]="{'invalid':email.invalid && (email.dirty || email.touched)}" [formControl]="email" type="email">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Current password</label>
+                <input [ngClass]="{'invalid':currentPassword.invalid && (currentPassword.dirty || currentPassword.touched)}" [formControl]="currentPassword" type="password">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">New password</label>
+                <input [ngClass]="{'invalid':newPassword.invalid && (newPassword.dirty || newPassword.touched)}" [formControl]="newPassword" type="password">
+            </div>
+            <div class="form-control-dialog">
+                <button class="submit mt-3" mat-button (click)="editUser()">{{user?'Edit user':'New user'}}</button>
+            </div>
+        </div>
+    </div>
+    <button class="close" [mat-dialog-close]><mat-icon>close</mat-icon></button>
+</form>

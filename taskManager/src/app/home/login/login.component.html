@@ -1,0 +1,123 @@
+<div class="overlay">
+
+</div>
+<div class="container">
+    <div class="message signup">
+      <div class="btn-wrapper">
+        <button (click)="signupform(0)" class="button" id="signup">Sign Up</button>
+        <button (click)="signupform(1)" class="button" id="login"> Login</button>
+      </div>
+    </div>
+    <div class="form form--signup" [ngStyle]="{'display': signUpFormClass}">
+      <div class="form--heading">Welcome! Sign Up</div>
+  
+      <form autocomplete="off" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+  
+        <input type="text" placeholder="Name" [formControl]="name">
+        <p *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+  
+          <span *ngIf="name.hasError('required')">
+            Name is <strong>required</strong>
+          </span>
+        </p>
+  
+        <input type="text" placeholder="Surname" [formControl]="surname">
+        <p *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="text-danger">
+  
+          <span *ngIf="surname.hasError('required')">
+            Surname is <strong>required</strong>
+          </span>
+        </p>
+  
+        <input type="text" placeholder="Username" [formControl]="username">
+        <p *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+          <span *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+          </span>
+          <span *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </span>
+        </p>
+        <input type="email" matInput placeholder="Email" [formControl]="email">
+        <p *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+          <span *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+          </span>
+          <span *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </span>
+        </p>
+  
+        <input type="password" placeholder="Password" [formControl]="password">
+        <p *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+          <span *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+          </span>
+        </p>
+        <p *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+          <span *ngIf="!password.hasError('required')">
+            Please enter a valid password (passwords with 6 or more alphanumeric characters)
+          </span>
+        </p>
+        <input type="text" placeholder="Organization name" [formControl]="organizationName">
+        <p *ngIf="organizationName.invalid && (organizationName.dirty || organizationName.touched)" class="text-danger">
+          <span *ngIf="organizationName.hasError('required')">
+            Organization name is <strong>required</strong>
+          </span>
+        </p>
+        <input type="text" placeholder="Phone number" [formControl]="phoneNumber">
+        <p *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+          <span *ngIf="phoneNumber.hasError('required')">
+            Phone number is <strong>required</strong>
+          </span>
+        </p>
+        <input type="text" placeholder="Address" [formControl]="address">
+        <p *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+  
+          <span *ngIf="address.hasError('required')">
+            Address is <strong>required</strong>
+          </span>
+        </p>
+        <button class="button">Sign Up</button>
+
+        <p *ngIf="errorMessages!=null">
+          <span *ngFor="let e of errorMessages;let i=index" class="text-danger">
+            {{e}}<span *ngIf="!(errorMessages.length==i+1)">, </span>
+          </span>
+        </p> 
+
+      </form>
+    </div>
+    <div class="form form--login">
+      <div class="form--heading">Welcome back! </div>
+      <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="email" placeholder="Email" [formControl]="emailSi">
+        <p *ngIf="emailSi.invalid && (emailSi.dirty || emailSi.touched)" class="text-danger">
+          <span *ngIf="emailSi.hasError('email') && !emailSi.hasError('required')">
+            Please enter a valid email address
+          </span>
+          <span *ngIf="emailSi.hasError('required')">
+            Email is <strong>required</strong>
+          </span>
+        </p>
+        <input type="password" placeholder="Password" [formControl]="passwordSi">
+        <p *ngIf="passwordSi.invalid && (passwordSi.dirty || passwordSi.touched)" class="text-danger">
+          <span *ngIf="passwordSi.hasError('required')">
+            Password is <strong>required</strong>
+          </span>
+        </p>
+        <p *ngIf="passwordSi.invalid && (passwordSi.dirty || passwordSi.touched)" class="text-danger">
+          <span *ngIf="!passwordSi.hasError('required')">
+            Please enter a valid password (passwords with 6 or more alphanumeric characters)
+          </span>
+        </p>
+        <button class="button">Login</button>
+        <p *ngIf="errorMessages!=null">
+          <span *ngFor="let e of errorMessages;let i=index" class="text-danger">
+            {{e}}<span *ngIf="!(errorMessages.length==i+1)">, </span>
+          </span>
+        </p>
+      </form>
+
+    </div>
+</div>

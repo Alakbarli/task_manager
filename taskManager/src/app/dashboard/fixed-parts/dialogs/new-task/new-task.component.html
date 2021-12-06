@@ -1,0 +1,38 @@
+<form class="dialogForm" [formGroup]="newTaskForm">
+    <h1 mat-dialog-title>{{task?'Edit task':'New task'}}</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-control-dialog">
+                <label for="">Title</label>
+                <input [ngClass]="{'invalid':title.invalid && (title.dirty || title.touched)}" [formControl]="title" type="text">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Deadline</label>
+                <input [ngClass]="{'invalid':deadline.invalid && (deadline.dirty || deadline.touched)}" [formControl]="deadline" type="datetime-local">
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Status</label>
+                <mat-select class="my-custom-select" [formControl]="statusId" [ngClass]="{'invalid':statusId.invalid && (statusId.dirty || statusId.touched)}">
+                        <mat-option *ngFor="let e of statuses" [value]="e.id">{{e.name}}</mat-option>
+                 </mat-select>
+            </div>
+            <div class="form-control-dialog">
+                <label for="">Users</label>
+                    <mat-select class="my-custom-select" [formControl]="users" multiple [ngClass]="{'invalid':users.invalid && (users.dirty || users.touched)}">
+                        <mat-option *ngFor="let e of usersList" [value]="e.id">{{e.name+' '+e.surname}}</mat-option>
+                    </mat-select>
+            </div>
+
+            <div class="form-control-dialog">
+                <label for="">Description</label>
+                <textarea [formControl]="description" [ngClass]="{'invalid':description.invalid && (description.dirty || description.touched)}">
+
+                </textarea>
+            </div> 
+            <div class="form-control-dialog">
+                <button class="submit mt-3" mat-button (click)="operateTask()">{{task?'Edit task':'New task'}}</button>
+            </div>
+        </div>
+    </div>
+    <button class="close" [mat-dialog-close]><mat-icon>close</mat-icon></button>
+</form>
